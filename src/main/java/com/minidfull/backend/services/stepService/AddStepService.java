@@ -35,7 +35,7 @@ public class AddStepService implements AddingStepInterface {
     public void addingStep(StepsDTO request) {
         Set<ConstraintViolation<StepsDTO>> violations = validator.validate(request);
 
-        if (violations.size() > 0) {
+        if (!violations.isEmpty()) {
             throw new ConstraintViolationException(violations);
         }
 
