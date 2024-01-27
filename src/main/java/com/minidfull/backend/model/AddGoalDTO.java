@@ -13,7 +13,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class GoalsDTO {
+public class AddGoalDTO {
 
     @NotBlank @Size(max = 255)
     private String name;

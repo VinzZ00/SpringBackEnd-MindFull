@@ -2,10 +2,11 @@ package com.minidfull.backend.services.stepService;
 
 import com.minidfull.backend.entity.Goals;
 import com.minidfull.backend.entity.Steps;
+import com.minidfull.backend.model.BackEndException;
 import com.minidfull.backend.model.StepsDTO;
 import com.minidfull.backend.repository.goalRepository.GoalRepository;
 import com.minidfull.backend.repository.stepsRepository.StepRepository;
-import com.minidfull.backend.services.goalService.interfaces.AddingStepInterface;
+import com.minidfull.backend.services.interfaces.AddingStepInterface;
 import jakarta.transaction.Transactional;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
@@ -14,6 +15,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -41,8 +43,8 @@ public class AddStepService implements AddingStepInterface {
 
         Steps step = modelMapper.map(request, Steps.class);
 
-        Goals associatedGoal = goalRepository.findByGoalId(request.getParent().getGoalId());
-        step.setGoal(associatedGoal);
+        Optional<Goals> associatedGoal = goalRepository.findByGoalId(request.getParent().getGoalId());
+        step.setGoal(associatedGoal.orElseThrow(() -> BackEndException.notFoundException(Goals.class.getName())));
 
 
         stepRepository.save(step);

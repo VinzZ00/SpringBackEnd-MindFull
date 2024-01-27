@@ -1,13 +1,12 @@
 package com.minidfull.backend.services.goalService;
 
 import com.minidfull.backend.entity.Goals;
-import com.minidfull.backend.model.GoalsDTO;
+import com.minidfull.backend.model.AddGoalDTO;
 import com.minidfull.backend.repository.goalRepository.GoalRepository;
-import com.minidfull.backend.services.goalService.interfaces.AddingGoalInterface;
+import com.minidfull.backend.services.interfaces.AddingGoalInterface;
 import jakarta.transaction.Transactional;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -28,18 +27,16 @@ public class AddGoalService implements AddingGoalInterface {
 
     @Override
     @Transactional
-    public void addingGoal(GoalsDTO goal) throws ConstraintViolationException {
-        Set<ConstraintViolation<GoalsDTO>> violations = validator.validate(goal);
+    public void addingGoal(AddGoalDTO goal) throws ConstraintViolationException {
+        Set<ConstraintViolation<AddGoalDTO>> violations = validator.validate(goal);
 
         if (!violations.isEmpty()) {
             throw new ConstraintViolationException(violations);
         }
 
-        if (goalRepository.existsByName(goal.getName())) {
+        if (goalRepository.existsByNameIgnoreCase(goal.getName())) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Goal already exist, remove the last one before you can add it again");
         }
-
-
 
         Goals g = new Goals();
         g.setName(goal.getName());
