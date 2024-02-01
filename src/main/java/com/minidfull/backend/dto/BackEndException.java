@@ -1,4 +1,4 @@
-package com.minidfull.backend.model;
+package com.minidfull.backend.dto;
 
 public class BackEndException extends RuntimeException {
     public BackEndException(String message) {

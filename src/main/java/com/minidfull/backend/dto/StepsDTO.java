@@ -1,4 +1,4 @@
-package com.minidfull.backend.model;
+package com.minidfull.backend.dto;
 
 import com.minidfull.backend.entity.Goals;
 import jakarta.validation.constraints.NotBlank;

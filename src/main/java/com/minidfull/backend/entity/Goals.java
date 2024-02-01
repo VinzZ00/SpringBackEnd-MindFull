@@ -33,7 +33,7 @@ public class Goals {
     private String reason;
 
     // Relationship
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "GoalId", referencedColumnName = "goalId")
     private List<Steps> steps;
 }

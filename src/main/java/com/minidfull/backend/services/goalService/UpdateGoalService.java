@@ -1,9 +1,9 @@
 package com.minidfull.backend.services.goalService;
 
 import com.minidfull.backend.entity.Goals;
-import com.minidfull.backend.model.BackEndException;
-import com.minidfull.backend.model.UpdateGoalDTO;
-import com.minidfull.backend.repository.goalRepository.GoalRepository;
+import com.minidfull.backend.dto.BackEndException;
+import com.minidfull.backend.dto.UpdateGoalDTO;
+import com.minidfull.backend.repository.GoalRepository;
 import com.minidfull.backend.services.interfaces.UpdateGoalInterface;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Validator;

@@ -1,8 +1,8 @@
 package com.minidfull.backend.services.goalService;
 
+import com.minidfull.backend.dto.AddGoalDTO;
 import com.minidfull.backend.entity.Goals;
-import com.minidfull.backend.model.AddGoalDTO;
-import com.minidfull.backend.repository.goalRepository.GoalRepository;
+import com.minidfull.backend.repository.GoalRepository;
 import com.minidfull.backend.services.interfaces.AddingGoalInterface;
 import jakarta.transaction.Transactional;
 import jakarta.validation.ConstraintViolation;
@@ -27,7 +27,7 @@ public class AddGoalService implements AddingGoalInterface {
 
     @Override
     @Transactional
-    public void addingGoal(AddGoalDTO goal) throws ConstraintViolationException {
+    public void addingGoal(AddGoalDTO goal) {
         Set<ConstraintViolation<AddGoalDTO>> violations = validator.validate(goal);
 
         if (!violations.isEmpty()) {
@@ -35,6 +35,7 @@ public class AddGoalService implements AddingGoalInterface {
         }
 
         if (goalRepository.existsByNameIgnoreCase(goal.getName())) {
+            System.out.println("masuk di if tidak unik");
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Goal already exist, remove the last one before you can add it again");
         }
 

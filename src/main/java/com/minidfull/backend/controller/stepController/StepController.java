@@ -1,7 +1,7 @@
 package com.minidfull.backend.controller.stepController;
 
-import com.minidfull.backend.model.StepsDTO;
-import com.minidfull.backend.model.WebResponse;
+import com.minidfull.backend.dto.WebResponse;
+import com.minidfull.backend.dto.StepsDTO;
 import com.minidfull.backend.services.stepService.AddStepService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

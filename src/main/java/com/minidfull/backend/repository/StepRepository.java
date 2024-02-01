@@ -1,4 +1,4 @@
-package com.minidfull.backend.repository.stepsRepository;
+package com.minidfull.backend.repository;
 
 import com.minidfull.backend.entity.Steps;
 import org.springframework.data.jpa.repository.JpaRepository;

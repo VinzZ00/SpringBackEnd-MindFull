@@ -1,12 +1,12 @@
 package com.minidfull.backend.services.stepService;
 
-import com.minidfull.backend.entity.Goals;
 import com.minidfull.backend.entity.Steps;
-import com.minidfull.backend.model.BackEndException;
-import com.minidfull.backend.model.StepsDTO;
-import com.minidfull.backend.repository.goalRepository.GoalRepository;
-import com.minidfull.backend.repository.stepsRepository.StepRepository;
+import com.minidfull.backend.dto.StepsDTO;
+import com.minidfull.backend.repository.GoalRepository;
 import com.minidfull.backend.services.interfaces.AddingStepInterface;
+import com.minidfull.backend.entity.Goals;
+import com.minidfull.backend.dto.BackEndException;
+import com.minidfull.backend.repository.StepRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;

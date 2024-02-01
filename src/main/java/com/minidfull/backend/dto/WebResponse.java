@@ -1,4 +1,4 @@
-package com.minidfull.backend.model;
+package com.minidfull.backend.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

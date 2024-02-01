@@ -1,6 +1,6 @@
 package com.minidfull.backend.services.interfaces;
 
-import com.minidfull.backend.model.AddGoalDTO;
+import com.minidfull.backend.dto.AddGoalDTO;
 import jakarta.validation.ConstraintViolationException;
 
 public interface AddingGoalInterface {
