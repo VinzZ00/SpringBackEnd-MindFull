@@ -1,12 +1,9 @@
 package com.minidfull.backend.controller.goalController;
 
-import com.minidfull.backend.dto.goalDtos.AddGoalDTO;
-import com.minidfull.backend.dto.goalDtos.DeleteGoalsDTO;
+import com.minidfull.backend.dto.goalDtos.*;
 import com.minidfull.backend.dto.WebResponse;
-import com.minidfull.backend.dto.goalDtos.GoalResponseByDeadline;
 import com.minidfull.backend.entity.Goals;
 import com.minidfull.backend.services.goalService.*;
-import com.minidfull.backend.dto.goalDtos.UpdateGoalDTO;
 import org.apache.coyote.Response;
 import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,6 +63,7 @@ public class GoalController implements GoalControllerInterface {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
+    @Override
     public WebResponse<String> deleteGoal(@RequestBody DeleteGoalsDTO request) {
         deleteGoalService.deleteGoal(request);
 
@@ -87,13 +85,14 @@ public class GoalController implements GoalControllerInterface {
             path = "/api/goals",
             params = {"dateBefore"}
     )
-
+    @Override
     public ResponseEntity<HashMap<Date, GoalResponseByDeadline[]>> getGoalsByTimeBound(@RequestParam("dateBefore") @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateBefore) {
 
         GoalResponseByDeadline[] goals = getGoalsByTimeBoundService
                 .getByTimeBound(dateBefore)
                 .stream()
                 .map(g -> new GoalResponseByDeadline(
+                        g.getGoalId(),
                         g.getName(),
                         g.getGoalIndicator(),
                         g.getDateCreatedAt(),
@@ -109,8 +108,14 @@ public class GoalController implements GoalControllerInterface {
             path = "/api/AllGoals",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public List<Goals> getAllGoals() {
-        return getAllGoalService.getAllGoals();
+    @Override
+    public GetAllGoalsResponse getAllGoals() {
+        GetAllGoalsResponse resp = GetAllGoalsResponse
+                .builder()
+                .datas(getAllGoalService
+                        .getAllGoals())
+                .build();
+        return resp;
     }
 
 }

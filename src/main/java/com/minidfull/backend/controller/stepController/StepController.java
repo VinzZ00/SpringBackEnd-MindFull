@@ -40,6 +40,7 @@ public class StepController implements StepControllerInterface{
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
+    @Override
     public WebResponse<String> updateStep(UpdateStepDTO request) {
         updateStepService.updateStep(request);
         return WebResponse.<String>builder().data("Step ".concat(request.getStepId().toString()).concat(" Successfully added")).build();
@@ -50,6 +51,7 @@ public class StepController implements StepControllerInterface{
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
+    @Override
     public WebResponse<String> deleteStep(DeleteStepsDTO request) {
         deleteStepService.deleteSteps(request);
 

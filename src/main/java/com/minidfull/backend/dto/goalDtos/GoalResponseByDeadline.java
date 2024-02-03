@@ -15,6 +15,7 @@ import java.util.List;
 @Builder
 public class GoalResponseByDeadline {
 
+    private Long goalId;
     private String name;
     private String goalIndicator;
     private Date dateCreatedAt;
