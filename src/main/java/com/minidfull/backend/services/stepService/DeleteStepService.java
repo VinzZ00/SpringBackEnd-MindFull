@@ -48,7 +48,7 @@ public class DeleteStepService {
 
         for (Long g : goalIds) {
             if(goalRepo.existsByGoalId(g)) {
-                if (!stepRepo.existsByGoal(g)) {
+                if (!stepRepo.existsByGoal_GoalId(g)) {
                     if (!goalRepo.deleteGoalsByGoalId(g)) {
                         throw BackEndException.SpringServerLogicalError(this.getClass().getName());
                     }

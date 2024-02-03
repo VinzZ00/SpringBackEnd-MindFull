@@ -1,28 +1,24 @@
 package com.minidfull.backend.dto.goalDtos;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.minidfull.backend.entity.Steps;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
-public class AddGoalDTO {
+public class GoalResponseByDeadline {
 
-    @NotBlank @Size(max = 255)
     private String name;
-
-    @NotBlank @Size(max = 255)
     private String goalIndicator;
-
-    private Date timeBound;
     private Date dateCreatedAt;
     private int priority;
+    private List<Steps> steps;
 
 }

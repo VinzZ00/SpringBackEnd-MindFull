@@ -33,7 +33,7 @@ public class Goals {
     private int priority;
 
     // Relationship
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "GoalId", referencedColumnName = "goalId")
     private List<Steps> steps;
 }
