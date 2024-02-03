@@ -1,7 +1,7 @@
 package com.minidfull.backend.services.goalService;
 
 import com.minidfull.backend.dto.BackEndException;
-import com.minidfull.backend.dto.DeleteGoalsDTO;
+import com.minidfull.backend.dto.goalDtos.DeleteGoalsDTO;
 import com.minidfull.backend.entity.Goals;
 import com.minidfull.backend.repository.GoalRepository;
 import jakarta.transaction.Transactional;
@@ -20,15 +20,15 @@ public class DeleteGoalService {
     @Autowired private Validator validator;
 
     @Transactional
-    public void deleteGoal(DeleteGoalsDTO goal) {
+    public void deleteGoal(DeleteGoalsDTO goals) {
 
-        Set<ConstraintViolation<DeleteGoalsDTO>> violations = validator.validate(goal);
+        Set<ConstraintViolation<DeleteGoalsDTO>> violations = validator.validate(goals);
 
         if (violations.size() > 0) {
             throw new ConstraintViolationException(violations);
         }
 
-        for(Long g : goal.getGoalIds()) {
+        for(Long g : goals.getGoalIds()) {
             if (repository.existsByGoalId(g))
                 repository.deleteGoalsByGoalId(g);
             else

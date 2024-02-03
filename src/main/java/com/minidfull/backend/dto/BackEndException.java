@@ -11,4 +11,9 @@ public class BackEndException extends RuntimeException {
 
         return new BackEndException(message);
     }
+
+    public static BackEndException SpringServerLogicalError(String className) {
+        return new BackEndException("this message is generated for the Coder, no Exception was detected but the transaction is failed in".concat(className));
+    }
+
 }

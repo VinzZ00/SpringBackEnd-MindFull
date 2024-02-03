@@ -24,12 +24,13 @@ public class Steps {
             generator = "stepSeq"
     )
     private long stepId;
-
+    private String stepDescription;
     // Column
-    String motivation;
+    private String motivation;
+
     @JsonFormat(pattern = "HH:mm:ss")
     @Temporal(TemporalType.TIME)
-    Time dailyTime;
+    private Time dailyTime;
 
     @ManyToOne
     @JoinColumn(name = "goalId", referencedColumnName = "goalId")

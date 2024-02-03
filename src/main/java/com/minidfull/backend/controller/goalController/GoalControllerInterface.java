@@ -1,8 +1,8 @@
 package com.minidfull.backend.controller.goalController;
 
-import com.minidfull.backend.dto.AddGoalDTO;
+import com.minidfull.backend.dto.goalDtos.AddGoalDTO;
 import com.minidfull.backend.dto.WebResponse;
-import com.minidfull.backend.dto.UpdateGoalDTO;
+import com.minidfull.backend.dto.goalDtos.UpdateGoalDTO;
 import org.springframework.web.bind.annotation.RequestBody;
 
 public interface GoalControllerInterface {

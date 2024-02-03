@@ -1,4 +1,4 @@
-package com.minidfull.backend.dto;
+package com.minidfull.backend.dto.stepDtos;
 
 import com.minidfull.backend.entity.Goals;
 import jakarta.validation.constraints.NotBlank;
@@ -14,12 +14,15 @@ import java.sql.Time;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class StepsDTO {
+public class AddStepsDTO {
 
-    Time dailyTime;
+    @NotBlank @Size(max = 255)
+    private String stepDescription;
 
     @NotBlank @Size(max = 255)
     private String motivation;
+
+    Time dailyTime;
 
     // Parent DTO
     private Goals parent;

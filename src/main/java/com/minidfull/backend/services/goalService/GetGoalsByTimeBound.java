@@ -1,9 +1,8 @@
 package com.minidfull.backend.services.goalService;
 
-import com.minidfull.backend.dto.GetGoalBeforeDTO;
+import com.minidfull.backend.dto.goalDtos.GetGoalBeforeDTO;
 import com.minidfull.backend.entity.Goals;
 import com.minidfull.backend.repository.GoalRepository;
-import jakarta.transaction.Transactional;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Validator;

@@ -1,11 +1,11 @@
-package com.minidfull.backend.dto;
+package com.minidfull.backend.dto.goalDtos;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 
 import java.util.Date;
 
@@ -13,13 +13,9 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class UpdateGoalDTO {
+public class AddGoalDTO {
 
-    @NotBlank
-    private Long goalId;
-
-    @NotBlank
-    @Size(max = 255)
+    @NotBlank @Size(max = 255)
     private String name;
 
     @NotBlank @Size(max = 255)
@@ -28,6 +24,7 @@ public class UpdateGoalDTO {
     private Date timeBound;
     private Date dateCreatedAt;
 
-    @NotBlank @Size(max = 255)
-    private String reason;
+    @NotBlank
+    private int priority;
+
 }

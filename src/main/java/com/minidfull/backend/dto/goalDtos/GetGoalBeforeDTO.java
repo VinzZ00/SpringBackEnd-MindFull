@@ -1,4 +1,4 @@
-package com.minidfull.backend.dto;
+package com.minidfull.backend.dto.goalDtos;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;

@@ -1,7 +1,7 @@
 package com.minidfull.backend.controller.stepController;
 
 import com.minidfull.backend.dto.WebResponse;
-import com.minidfull.backend.dto.StepsDTO;
+import com.minidfull.backend.dto.stepDtos.AddStepsDTO;
 import com.minidfull.backend.services.stepService.AddStepService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -21,7 +21,7 @@ public class StepController implements StepControllerInterface{
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     @Override
-    public WebResponse<String> addStep(@RequestBody StepsDTO request) {
+    public WebResponse<String> addStep(@RequestBody AddStepsDTO request) {
         addStepService.addingStep(request);
         return WebResponse.<String>builder().data("Step Successfully added").build();
     }

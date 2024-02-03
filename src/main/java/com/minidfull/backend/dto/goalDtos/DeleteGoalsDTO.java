@@ -1,4 +1,4 @@
-package com.minidfull.backend.dto;
+package com.minidfull.backend.dto.goalDtos;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 public class DeleteGoalsDTO {
     @NotBlank
     private Long[] goalIds;

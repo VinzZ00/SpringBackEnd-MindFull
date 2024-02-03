@@ -30,7 +30,7 @@ public class Goals {
     private String goalIndicator;
     private Date timeBound;
     private Date dateCreatedAt;
-    private String reason;
+    private int priority;
 
     // Relationship
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)

@@ -1,10 +1,10 @@
 package com.minidfull.backend.controller.goalController;
 
-import com.minidfull.backend.dto.AddGoalDTO;
-import com.minidfull.backend.dto.DeleteGoalsDTO;
+import com.minidfull.backend.dto.goalDtos.AddGoalDTO;
+import com.minidfull.backend.dto.goalDtos.DeleteGoalsDTO;
 import com.minidfull.backend.dto.WebResponse;
 import com.minidfull.backend.services.goalService.AddGoalService;
-import com.minidfull.backend.dto.UpdateGoalDTO;
+import com.minidfull.backend.dto.goalDtos.UpdateGoalDTO;
 import com.minidfull.backend.services.goalService.DeleteGoalService;
 import com.minidfull.backend.services.goalService.UpdateGoalService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +12,6 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Arrays;
 
 // Note Using this we dont need to use ResponseEntity Class see Exception Handler to get more detail
 @RestController
