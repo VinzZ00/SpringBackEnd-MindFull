@@ -16,8 +16,4 @@ public class BackendApplication {
 	ModelMapper modelMapper() {
 		return new ModelMapper();
 	}
-
-
-
-
 }

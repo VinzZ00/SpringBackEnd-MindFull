@@ -82,6 +82,7 @@ public class StepController implements StepControllerInterface {
                     "goalId"
             }
     )
+    @Override
     public StepResponseDTO getStepByGoal(@RequestParam("goalId") Long goalId) {
         List<Steps> steps = getAllStepService.getAllStepByGoals(goalId);
         return StepResponseDTO.builder().data(steps).build();
