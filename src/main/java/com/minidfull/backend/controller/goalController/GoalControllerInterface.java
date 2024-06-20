@@ -14,7 +14,7 @@ import java.util.List;
 
 public interface GoalControllerInterface {
 
-    WebResponse<Goals> addGoal(@RequestBody AddGoalDTO request);
+    WebResponse<String> addGoal(@RequestBody AddGoalDTO request);
     WebResponse<String> updateGoal(@RequestBody UpdateGoalDTO request);
     WebResponse<String> deleteGoal(@RequestBody DeleteGoalsDTO request);
     ResponseEntity<HashMap<Date, GoalResponseByDeadline[]>> getGoalsByTimeBound(@RequestParam("dateBefore") @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateBefore);
