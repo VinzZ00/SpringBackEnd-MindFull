@@ -34,10 +34,10 @@ public class GoalController implements GoalControllerInterface {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public WebResponse<String> addGoal(@RequestBody AddGoalDTO request) {
+    public WebResponse<Goals> addGoal(@RequestBody AddGoalDTO request) {
         return WebResponse
-                .<String>builder()
-                .data("Goal sudah masuk")
+                .<Goals>builder()
+                .data(addGoalService.addingGoal(request))
                 .build();
     }
 
