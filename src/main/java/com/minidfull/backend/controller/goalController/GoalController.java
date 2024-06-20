@@ -34,13 +34,10 @@ public class GoalController implements GoalControllerInterface {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public WebResponse<String> addGoal(@RequestBody AddGoalDTO request) {
-        System.out.println("Sebelum error");
-        addGoalService.addingGoal(request);
-        System.out.println("Setelah error");
+    public WebResponse<Goals> addGoal(@RequestBody AddGoalDTO request) {
         return WebResponse
-                .<String>builder()
-                .data("Goal Successfully added")
+                .<Goals>builder()
+                .data(addGoalService.addingGoal(request))
                 .build();
     }
 

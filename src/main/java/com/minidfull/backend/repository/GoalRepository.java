@@ -16,6 +16,6 @@ public interface GoalRepository extends JpaRepository<Goals, Long> {
     Optional<Goals> findByGoalId(Long goalId);
     boolean deleteGoalsByGoalId(long goalId);
     List<Goals> findAll();
-
+    
     List<Goals> findAllByTimeBoundBefore(Date date);
 }

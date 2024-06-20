@@ -24,5 +24,5 @@ public class AddGoalDTO {
     private Date timeBound;
     private Date dateCreatedAt;
     private int priority;
-
+    
 }

@@ -25,7 +25,7 @@ public class AddGoalService {
     private Validator validator;
 
     @Transactional
-    public void addingGoal(AddGoalDTO goal) {
+    public Goals addingGoal(AddGoalDTO goal) {
         Set<ConstraintViolation<AddGoalDTO>> violations = validator.validate(goal);
 
         if (!violations.isEmpty()) {
@@ -43,7 +43,7 @@ public class AddGoalService {
         g.setDateCreatedAt(goal.getDateCreatedAt());
         g.setPriority(goal.getPriority());
 
-        goalRepository.save(g);
+        return goalRepository.save(g);
     }
 }
 
