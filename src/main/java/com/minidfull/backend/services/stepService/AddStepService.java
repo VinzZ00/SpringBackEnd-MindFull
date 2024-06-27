@@ -45,7 +45,6 @@ public class AddStepService {
         Optional<Goals> associatedGoal = goalRepository.findByGoalId(request.getParent().getGoalId());
         step.setGoal(associatedGoal.orElseThrow(() -> BackEndException.notFoundException(Goals.class.getName())));
 
-
         stepRepository.save(step);
     }
 
